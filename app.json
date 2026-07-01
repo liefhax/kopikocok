@@ -1,15 +1,16 @@
 {
   "expo": {
-    "name": "kopi-kocok-stock",
+    "name": "Kopi Kocok Stock",
     "slug": "kopi-kocok-stock",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "kopikocokstock",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false, // Ubah ke false dulu
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.liefhax.kopikocokstock"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +20,13 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.liefhax.kopikocokstock",
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.INTERNET"
+      ]
     },
     "web": {
       "output": "static",
@@ -38,11 +45,37 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      "expo-sqlite",
+      "@react-native-community/datetimepicker",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Akses ke galeri untuk menambahkan foto barang"
+        }
+      ],
+      [
+        "expo-file-system",
+        {
+          "fileSystemPermission": "Akses untuk backup dan import data"
+        }
+      ],
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": false
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "7a7785db-1333-4a0f-80ce-72057c4e849e"
+      }
     }
   }
 }
